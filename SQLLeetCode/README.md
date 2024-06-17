@@ -1,10 +1,11 @@
 30 Day Challenge of practicing sql by solving sql leetcode problems without the help of AI.
 
-**0-day_one.sql**
+# 0-day_one.sql
 #### Question 1. _Recyclable and Low Fat Products_
+##### Write a solution to find the ids of products that are both low fat and recyclable.
 
 Table: ```Products```
-
+```
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -12,9 +13,10 @@ Table: ```Products```
 | low_fats    | enum    |
 | recyclable  | enum    |
 +-------------+---------+
-*product_id* is the primary key (column with unique values) for this table.
-*low_fats* is an ENUM (category) of type ('Y', 'N') where 'Y' means this product is low fat and 'N' means it is not.
-*recyclable* is an ENUM (category) of types ('Y', 'N') where 'Y' means this product is recyclable and 'N' means it is not.
+```
+**product_id** : is the primary key (column with unique values) for this table.<br>
+**low_fats** : is an ENUM (category) of type ('Y', 'N') where 'Y' means this product is low fat and 'N' means it is not.<br>
+**recyclable** : is an ENUM (category) of types ('Y', 'N') where 'Y' means this product is recyclable and 'N' means it is not.
 
 
 ##### Solution
