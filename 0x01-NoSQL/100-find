@@ -1,0 +1,3 @@
+// using regex in a mongodb database
+
+db.school.find({name: {'$regex': '^Holberton'}})
