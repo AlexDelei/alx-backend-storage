@@ -18,7 +18,7 @@ def top_students(mongo_collection):
         {
             '$group': {
                 '_id': '$_id',
-                'name': {'$name'},
+                'name': {'$first': '$name'},
                 'averageScore': {'$avg': '$topics.score'}
             }
         },
