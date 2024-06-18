@@ -13,7 +13,7 @@ def top_students(mongo_collection):
 
     pipeline = [
         {
-            '$unwind': 'topics'
+            '$unwind': '$topics'
         },
         {
             '$group': {
