@@ -23,5 +23,5 @@ class Cache:
         """
         id = uuid.uuid4()
         r = redis.Redis()
-        r.set(id, data)
-        return id
+        r.set(str(id), data)
+        return str(id)
