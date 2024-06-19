@@ -15,13 +15,13 @@ class Cache:
         """
         Initialising by flushing the database first
         """
-        self._redis = redis.Redis().flushdb()
+        self._redis = redis.Redis()
+        self._redis.flushdb()
 
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """
         Generating a uuid and use it as a key in setting up the values
         """
         id = uuid.uuid4()
-        r = redis.Redis()
-        r.set(str(id), data)
+        self._redis.set(str(id), data)
         return str(id)
