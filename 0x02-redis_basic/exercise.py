@@ -3,7 +3,7 @@
 Writing strings to redis
 """
 import redis
-import uuid
+from uuid import uuid4
 from typing import Union, Callable, Optional, Any
 
 
@@ -28,7 +28,7 @@ class Cache:
         Returns:
             str: The UUID key under which the data is stored
         """
-        id = str(uuid.uuid4())
+        id = str(uuid4())
         self._redis.set(id, data)
         return id
 
