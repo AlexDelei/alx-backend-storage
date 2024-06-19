@@ -29,7 +29,6 @@ class Cache:
     """
     Cache class to interact with Redis python API
     """
-    @count_calls
     def __init__(self) -> None:
         """
         Initialising by flushing the database first
@@ -37,6 +36,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[int, str, float, bytes]) -> str:
         """
         Store the input data in Redis with a randomly generated UUID key
