@@ -4,6 +4,7 @@ Writing strings to redis
 """
 import redis
 import uuid
+from typing import Union
 
 
 class Cache:
@@ -16,7 +17,7 @@ class Cache:
         """
         self._redis = redis.Redis().flushdb()
 
-    def store(self, data: int | str | float | bytes) -> str:
+    def store(self, data: Union[int, str, float, bytes]) -> str:
         """
         Generating a uuid and use it as a key in setting up the values
         """
