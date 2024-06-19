@@ -21,7 +21,7 @@ def count_calls(method: Callable) -> Callable:
         Wrap up the method and call the incr redis api
         """
         self._redis.incr(method.__qualname__)
-        return method(*args, **kwargs)
+        return method(self, *args, **kwargs)
     return wrap
 
 
