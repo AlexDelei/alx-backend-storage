@@ -5,12 +5,31 @@ Writing strings to redis
 import redis
 from uuid import uuid4
 from typing import Union, Callable, Optional, Any
+from functools import wraps
+
+
+def count_calls(method: Callable) -> Callable:
+    """
+    A decorator that will count the number of times
+    Cache is called.
+
+    method: object to be called
+    """
+    @wraps(method)
+    def wrap(self: Any, *args, **kwargs) -> str:
+        """
+        Wrap up the method and call the incr redis api
+        """
+        self._redis.incr(method.__qualname__)
+        return method(*args, **kwargs)
+    return wrap
 
 
 class Cache:
     """
     Cache class to interact with Redis python API
     """
+    @count_calls
     def __init__(self) -> None:
         """
         Initialising by flushing the database first
